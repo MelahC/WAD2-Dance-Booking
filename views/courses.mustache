@@ -1,0 +1,41 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/styles/courses.css" />
+  <title>Dance Courses</title>
+</head>
+<body>
+  <h1>Dance Courses</h1>
+
+  <div class="course-list-container">
+    {{#courses}}
+    <div class="course-container">
+      <img src="{{imageUrl}}" alt="{{name}}" class="course-img" />
+
+      <div class="course-text">
+        <h2>{{name}}</h2>
+        <p><strong>Duration:</strong> {{duration}}</p>
+        <p><strong>Description:</strong> {{description}}</p>
+        <p><strong>Location:</strong> {{location}}</p>
+        <p><strong>Price:</strong> £{{price}}</p>
+        
+       {{#startDate}}
+      <p>
+        <strong>Schedule:</strong> from {{startDate}} to {{endDate}}
+        ({{numSessions}} sessions)
+      </p>
+    {{/startDate}}
+    {{^startDate}}
+      <p><em>No sessions scheduled yet</em></p>
+    {{/startDate}}
+
+        <a href="#" class="btn">Enroll Now</a>
+      </div>
+    </div>
+    {{/courses}}
+
+    {{^courses}}
+      <p>No courses found.</p>
+    {{/courses}}
+  </div>
+</body>
+</html>

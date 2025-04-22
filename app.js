@@ -6,6 +6,7 @@ const path = require("path");
 const mustacheExpress = require("mustache-express");
 const session = require("express-session");
 const flash = require("connect-flash");
+const coursesRoutes = require("./routes/courses");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,6 +41,8 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.send("Hello Mr Robot 🤖 Dance 🕺💃 Dance 🕺💃 Dance 🕺💃");
 });
+
+app.use("/courses", coursesRoutes);
 
 // Starts the server
 app.listen(PORT, () => {
