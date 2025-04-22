@@ -16,5 +16,21 @@
   "bugs": {
     "url": "https://github.com/MelahC/WAD2-Dance-Booking/issues"
   },
-  "homepage": "https://github.com/MelahC/WAD2-Dance-Booking#readme"
+  "homepage": "https://github.com/MelahC/WAD2-Dance-Booking#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^2.2.0",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mustache-express": "^1.3.2",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.9"
+  }
 }
