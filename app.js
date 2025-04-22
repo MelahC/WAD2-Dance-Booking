@@ -37,7 +37,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Creating simple route to test
 app.get("/", (req, res) => {
   res.render("home");
 });
