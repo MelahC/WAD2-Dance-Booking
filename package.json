@@ -1,0 +1,20 @@
+{
+  "name": "dance-booking-site",
+  "version": "1.0.0",
+  "description": "This application is a fullstack Node.js and Express web app. It allows users to view, book, and manage dance classes/courses. Organisers and admins can both add and edit courses, and admins can manage other users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelahC/WAD2-Dance-Booking.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelahC/WAD2-Dance-Booking/issues"
+  },
+  "homepage": "https://github.com/MelahC/WAD2-Dance-Booking#readme"
+}
