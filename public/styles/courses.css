@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #f4f4f4;  
+  background: #116466;  
   color: #333;
   line-height: 1.5;
   padding: 1rem;
@@ -41,7 +41,7 @@ h1 {
 
 .course-container {
   padding: 0.5rem;
-  background: #fff;
+  background: #376e6f;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;

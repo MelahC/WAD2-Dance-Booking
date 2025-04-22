@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 
 // Creating simple route to test
 app.get("/", (req, res) => {
-  res.send("Hello Mr Robot 🤖 Dance 🕺💃 Dance 🕺💃 Dance 🕺💃");
+  res.render("home");
 });
 
 app.use("/courses", coursesRoutes);
