@@ -42,6 +42,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/courses", coursesRoutes);
+const bookingRoutes = require("./routes/booking");
+app.use("/", bookingRoutes);
 
 // Starts the server
 app.listen(PORT, () => {

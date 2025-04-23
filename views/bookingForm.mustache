@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enroll in {{course.name}}</title>
+</head>
+<body>
+  <h1>Enroll in {{course.name}}</h1>
+  <p>Duration: {{course.duration}}<br>
+     Price: £{{course.price}}</p>
+  <form action="/courses/{{course._id}}/book" method="POST">
+    <p>
+      <label>Name:</label>
+      <input type="text" name="name" required>
+    </p>
+    <p>
+      <label>Email:</label>
+      <input type="email" name="email" required>
+    </p>
+    <button type="submit">Enroll Now</button>
+  </form>
+</body>
+</html>
