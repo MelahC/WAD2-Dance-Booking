@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/styles/adminDashboard.css" />
+  <link rel="stylesheet" href="/styles/navbar.css">
+</head>
+<body>
+{{> partials/navbar}}
+  <h1>Admin Dashboard</h1>
+  <h2>All Users</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#users}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{email}}</td>
+        <td>{{role}}</td>
+        <td>
+          {{^isAdmin}}
+          <form method="POST" action="/admin/delete-user">
+            <input type="hidden" name="userId" value="{{_id}}">
+            <button type="submit">Delete</button>
+          </form>
+          {{/isAdmin}}
+        </td>
+      </tr>
+      {{/users}}
+    </tbody>
+  </table>
+
+  <h2>Add Organiser</h2>
+  <form method="POST" action="/admin/add-organiser">
+    <p>
+      <label>Name:</label>
+      <input type="text" name="name" required>
+    </p>
+    <p>
+      <label>Email:</label>
+      <input type="email" name="email" required>
+    </p>
+    <p>
+      <label>Password:</label>
+      <input type="password" name="password" required>
+    </p>
+    <button type="submit">Add</button>
+  </form>
+</body>
+</html>

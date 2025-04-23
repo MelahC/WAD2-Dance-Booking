@@ -6,7 +6,7 @@ exports.listAll = (req, res) => {
       console.error("Error fetching courses:", err);
       return res.status(500).send("Error loading courses");
     }
-   
+
     courses.forEach((course) => {
       if (course.sessions && course.sessions.length > 0) {
         course.sessions.sort((a, b) => new Date(a.date) - new Date(b.date));

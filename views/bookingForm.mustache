@@ -2,8 +2,11 @@
 <html>
 <head>
   <title>Enroll in {{course.name}}</title>
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/bookingForm.css">
 </head>
 <body>
+{{> partials/navbar}}
   <h1>Enroll in {{course.name}}</h1>
   <p>Duration: {{course.duration}}<br>
      Price: £{{course.price}}</p>

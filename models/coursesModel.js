@@ -1,4 +1,4 @@
-const db = require("../data/db"); 
+const db = require("../data/db");
 
 // Cteate a function to get all courses
 function getAllCourses(callback) {
@@ -41,7 +41,7 @@ function updateCourse(courseId, updatedData, callback) {
     (err, numReplaced) => {
       if (err) return callback(err);
       callback(null, numReplaced);
-    }
+    },
   );
 }
 
@@ -51,5 +51,5 @@ module.exports = {
   getCourseById,
   createCourse,
   deleteCourse,
-  updateCourse
+  updateCourse,
 };

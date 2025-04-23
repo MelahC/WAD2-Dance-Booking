@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Organiser Dashboard</title>
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/dashboard.css" />
+</head>
+<body>
+{{> partials/navbar}}
+
+  <h1>Organiser Dashboard</h1>
+
+  <h2>All Courses</h2>
+  {{#courses}}
+  <div>
+    <strong>{{name}}</strong> ({{duration}}) - £{{price}}
+    <a href="/organiser/edit-course/{{_id}}">Edit</a>
+    <a href="/organiser/class-list/{{_id}}">View Participants</a>
+    <form action="/organiser/delete-course" method="POST" style="display:inline;">
+      <input type="hidden" name="courseId" value="{{_id}}" />
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+  {{/courses}}
+
+  <h2>Add a New Course</h2>
+  <form method="POST" action="/organiser/add-course">
+    <label>Name:</label>
+    <input type="text" name="name">
+    <label>Duration:</label>
+    <input type="text" name="duration">
+    <label>Price:</label>
+    <input type="number" name="price">
+    <label>Location:</label>
+    <input type="text" name="location">
+    <label>Description:</label>
+    <textarea name="description"></textarea>
+    <button type="submit">Add Course</button>
+  </form>
+</body>
+</html>

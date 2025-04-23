@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class Participants</title>
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/classList.css">
+</head>
+<body>
+{{> partials/navbar}}
+  <h1>Enrolled Participants</h1>
+  {{#participants}}
+    <p>{{name}} ({{email}})</p>
+  {{/participants}}
+  {{^participants}}
+    <p>No participants yet</p>
+  {{/participants}}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Course</title>
+  <link rel="stylesheet" href="/styles/navbar.css">
+</head>
+<body>
+  {{> partials/navbar}}
+
+  <h1>Editing {{course.name}}</h1>
+  <form method="POST" action="/organiser/edit-course/{{course._id}}">
+    <label>Name:</label>
+    <input type="text" name="name" value="{{course.name}}" />
+    <label>Duration:</label>
+    <input type="text" name="duration" value="{{course.duration}}" />
+    <label>Price:</label>
+    <input type="number" name="price" value="{{course.price}}" />
+    <label>Location:</label>
+    <input type="text" name="location" value="{{course.location}}" />
+    <label>Description:</label>
+    <textarea name="description">{{course.description}}</textarea>
+    <button type="submit">Save</button>
+  </form>
+</body>
+</html>

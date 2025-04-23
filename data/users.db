@@ -1,0 +1,5 @@
+{"name":"a","email":"a@test.com","password":"$2b$10$bg31sI.Q1HfZ9./mKYGMkuSw.mUInwIJ7SYHE9f7didwWLf9pOr5u","role":"organiser","_id":"MkY4VdiAk72iZU7R"}
+{"name":"test","email":"test@test.com","password":"$2b$10$WX8c35Bm6zR.uzBTCGV/oO9W.5GKZ0iYj0cp9zsbfkMVxG6NS9X.6","role":"organiser","_id":"VEIsfL7ELgtV43o5"}
+{"name":"Homer Simpson","email":"homersimpson@example.com","password":"$2b$10$ruD3TXX02QniYM9T95Pq4e8RuUJUDq46bELkxg3gUzSD.6EYAM012","role":"organiser","_id":"ca7XE6GzOeMyf8FM"}
+{"name":"mila","email":"mila@test.com","password":"$2b$10$GZCkBwg9OpZkJ0aT0JCaEuNwXspiAyUlhz2GCSqr3L/bDQIUTpkwS","role":"organiser","_id":"hSFipNYyP7NhNxzv"}
+{"name":"Admin User","email":"admin@example.com","password":"$2b$10$ir6MlYrYDBWiIdjaMNCiOejqnvj/eWeU1erpsOlop4grFkuBjWbSC","role":"admin","_id":"iGrYGvBm0ogGinE4"}
