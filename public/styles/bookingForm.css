@@ -3,3 +3,18 @@ body {
   font-family: "Open Sans", sans-serif;
   background: #116466;
 }
+
+.btn {
+  display: inline-block;
+  background: #3a6ea5;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #2980b9;
+}

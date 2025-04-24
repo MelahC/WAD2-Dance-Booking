@@ -5,3 +5,4 @@
 {"courseId":"6frsjLXfoyl9MYmJ","name":"Dean","email":"dean@test.com","dateBooked":{"$$date":1745445515339},"_id":"OPJVzhTXFyG8xNQ2"}
 {"courseId":"6frsjLXfoyl9MYmJ","name":"James Bond","email":"jamesbond007@gmail.com","dateBooked":{"$$date":1745370191241},"_id":"mZCCaM4rExAWBUSK"}
 {"courseId":"6frsjLXfoyl9MYmJ","name":"Marge","email":"simpon@test.com","dateBooked":{"$$date":1745445919019},"_id":"vDN8GLirH29HpprK"}
+{"courseId":"6frsjLXfoyl9MYmJ","name":"Sam Ayre","email":"samayres@test.com","dateBooked":{"$$date":1745457284409},"_id":"dqzAF3gcKpnzHEgS"}
