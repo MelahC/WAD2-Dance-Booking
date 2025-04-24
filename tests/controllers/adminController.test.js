@@ -58,6 +58,87 @@ describe("adminController", () => {
     })
   })
 
+  describe("addOrganiser", () => {
+    it("should add a new organiser and redirect to /admin", async () => {
+      const req = mockRequest({}, {
+        name: "New Org",
+        email: "org@example.com",
+        password: "test123",
+      })
+      const res = mockResponse()
   
- 
+      usersDB.insert.mockImplementation((doc, cb) => cb(null))
+  
+      await adminController.addOrganiser(req, res)
+  
+      expect(bcrypt.hash).toHaveBeenCalledWith("test123", 10)
+      expect(usersDB.insert).toHaveBeenCalledWith(
+        {
+          name: "New Org",
+          email: "org@example.com",
+          password: "mockHashedPW",
+          role: "organiser",
+        },
+        expect.any(Function)
+      )
+      expect(res.redirect).toHaveBeenCalledWith("/admin")
+    })
+  
+    it("should still redirect to /admin on insertion error", async () => {
+      const req = mockRequest({}, {
+        name: "Fail Org",
+        email: "fail@example.com",
+        password: "123",
+      })
+      const res = mockResponse()
+  
+      usersDB.insert.mockImplementation((doc, cb) => {
+        cb(new Error("Insertion error"))
+      })
+  
+      await adminController.addOrganiser(req, res)
+  
+      expect(res.redirect).toHaveBeenCalledWith("/admin")
+    })
+
+  })
+   
+  describe("deleteUser", () => {
+    it("removes user by _id and redirects to /admin", (done) => {
+      const req = mockRequest({}, { userId: "someUserId" })
+      const res = mockResponse()
+
+      usersDB.remove.mockImplementation((query, opts, callback) => {
+        callback(null)
+      })
+
+      adminController.deleteUser(req, res)
+
+      setTimeout(() => {
+        expect(usersDB.remove).toHaveBeenCalledWith(
+          { _id: "someUserId" },
+          {},
+          expect.any(Function)
+        )
+        expect(res.redirect).toHaveBeenCalledWith("/admin")
+        done()
+      }, 0)
+    })
+
+    it("redirects to /admin if an error occurs during removal", (done) => {
+      const req = mockRequest({}, { userId: "brokenId" })
+      const res = mockResponse()
+
+      usersDB.remove.mockImplementation((q, o, callback) => {
+        callback(new Error("Removal error"))
+      })
+
+      adminController.deleteUser(req, res)
+
+      setTimeout(() => {
+        expect(res.redirect).toHaveBeenCalledWith("/admin")
+        done()
+      }, 0)
+    })
+  })
 }) 
