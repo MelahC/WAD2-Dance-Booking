@@ -101,5 +101,30 @@ describe("authController", () => {
     expect(res.redirect).toHaveBeenCalledWith("/admin")
   })
   
+  it("should store user in session & redirect to /organiser/dashboard if user is organiser", () => {
+    const req = mockRequest({}, { email: "org@example.com", password: "pw" })
+    const res = mockResponse()
+  
+    userModel.findUserByEmail.mockImplementation((email, cb) => {
+      cb(null, {
+        _id: "abc",
+        email: "org@example.com",
+        password: "hashedPW",
+        role: "organiser",
+      })
+    })
+    bcrypt.compare.mockImplementation((plain, hashed, done) => {
+      done(null, true)
+    })
+  
+    authController.userLogin(req, res)
+    expect(req.session.user).toEqual({
+      _id: "abc",
+      email: "org@example.com",
+      role: "organiser",
+    })
+    expect(res.redirect).toHaveBeenCalledWith("/organiser/dashboard")
+  })
+  
 
 })
