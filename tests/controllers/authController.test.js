@@ -126,5 +126,19 @@ describe("authController", () => {
     expect(res.redirect).toHaveBeenCalledWith("/organiser/dashboard")
   })
   
+  describe("logoutUser", () => {
+    it("should destroy session and redirect /", () => {
+      const req = {
+        session: {
+          destroy: jest.fn((cb) => cb()),
+        },
+      }
+      const res = mockResponse()
+  
+      authController.logoutUser(req, res)
+      expect(req.session.destroy).toHaveBeenCalled()
+      expect(res.redirect).toHaveBeenCalledWith("/")
+    })
+  })
 
 })
