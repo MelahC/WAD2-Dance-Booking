@@ -37,4 +37,20 @@ describe("authController", () => {
     })
   })
 
+  describe("userLogin", () => {
+    it("should render login with error if user not found", () => {
+      const req = mockRequest({}, { email: "noexist@example.com", password: "pass" })
+      const res = mockResponse()
+      userModel.findUserByEmail.mockImplementation((email, cb) => {
+        cb(null, null)
+      })
+  
+      authController.userLogin(req, res)
+  
+      expect(res.render).toHaveBeenCalledWith("user/login", {
+        error: "Invalid email",
+      })
+    })
+  })
+
 })
