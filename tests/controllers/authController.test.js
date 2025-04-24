@@ -53,4 +53,27 @@ describe("authController", () => {
     })
   })
 
+  it("should render err if password mismatch", () => {
+    const req = mockRequest({}, { email: "some@example.com", password: "wrong" })
+    const res = mockResponse()
+  
+    userModel.findUserByEmail.mockImplementation((email, cb) =>
+      cb(null, {
+        _id: "123",
+        email: "some@example.com",
+        password: "hashedPW",
+        role: "organiser",
+      })
+    )
+
+    bcrypt.compare.mockImplementation((plain, hashed, done) => {
+      done(null, false)
+    })
+  
+    authController.userLogin(req, res)
+    expect(res.render).toHaveBeenCalledWith("user/login", {
+      error: "Invalid password",
+    })
+  })
+
 })
